@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.1'
 
-gem 'administrate'
+gem 'administrate', '~> 0.3.0'
 gem 'bootstrap'
 gem 'devise'
 gem 'bourbon'
