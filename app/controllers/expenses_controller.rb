@@ -15,7 +15,6 @@ class ExpensesController < ApplicationController
   # GET /expenses/new
   def new
     @expense = Expense.new
-    @user = current_user
   end
 
   # GET /expenses/1/edit
@@ -26,7 +25,6 @@ class ExpensesController < ApplicationController
   # POST /expenses.json
   def create
     @expense = Expense.new(expense_params)
-    @user = current_user
 
     respond_to do |format|
       if @expense.save
