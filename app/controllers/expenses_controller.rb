@@ -15,6 +15,7 @@ class ExpensesController < ApplicationController
   # GET /expenses/new
   def new
     @expense = Expense.new
+    @user = current_user
   end
 
   # GET /expenses/1/edit
@@ -25,6 +26,7 @@ class ExpensesController < ApplicationController
   # POST /expenses.json
   def create
     @expense = Expense.new(expense_params)
+    @user = current_user
 
     respond_to do |format|
       if @expense.save
@@ -69,6 +71,7 @@ class ExpensesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def expense_params
-      params.require(:expense).permit(:location, :description, :total, :date)
+      params.require(:expense).permit(:location, :description, :total, :date).
+      merge(user: current_user)
     end
 end
