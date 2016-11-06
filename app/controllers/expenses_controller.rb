@@ -5,6 +5,9 @@ class ExpensesController < ApplicationController
   # GET /expenses.json
   def index
     @expenses = Expense.all
+    unless current_user
+      redirect_to root_url
+    end
   end
 
   # GET /expenses/1

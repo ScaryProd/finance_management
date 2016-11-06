@@ -14,7 +14,7 @@
   </thead>
 
   <tbody>
-    <% @expenses.each do |expense| %>
+    <% current_user.expenses.each do |expense| %>
       <tr>
         <td><%= expense.location %></td>
         <td><%= expense.description %></td>
