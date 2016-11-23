@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.3.1'
 
 gem 'administrate', '~> 0.3.0'
-gem 'bootstrap'
+gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
 gem 'bourbon'
 
