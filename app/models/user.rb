@@ -5,6 +5,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  # has_many is an attribute that allows the userto have many expense models.
   has_many :expenses
 
 end

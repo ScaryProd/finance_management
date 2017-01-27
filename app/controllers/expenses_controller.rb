@@ -1,8 +1,8 @@
+# Controller that allows the user to handle expense reports.
 class ExpensesController < ApplicationController
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
 
-  # GET /expenses
-  # GET /expenses.json
+  # index displays all current user expense reports, or will go to homepage if there is no user.
   def index
     @expenses = Expense.all
     unless current_user
@@ -10,22 +10,21 @@ class ExpensesController < ApplicationController
     end
   end
 
-  # GET /expenses/1
-  # GET /expenses/1.json
+  # show displays specific expense report
   def show
   end
 
-  # GET /expenses/new
+  # Template that allows the user to upload a new expense report.
   def new
     @expense = Expense.new
   end
 
-  # GET /expenses/1/edit
+  # Template that allows the user to correct or edit an existing expense.
   def edit
   end
 
-  # POST /expenses
-  # POST /expenses.json
+  # Upon successful report, will upload a new expense.
+  # Otherwise, will show error message.
   def create
     @expense = Expense.new(expense_params)
 
@@ -40,8 +39,7 @@ class ExpensesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /expenses/1
-  # PATCH/PUT /expenses/1.json
+  # Action that requests an update to the database
   def update
     respond_to do |format|
       if @expense.update(expense_params)
@@ -54,8 +52,7 @@ class ExpensesController < ApplicationController
     end
   end
 
-  # DELETE /expenses/1
-  # DELETE /expenses/1.json
+  # Upon user selection, will act and delete the selected expense.
   def destroy
     @expense.destroy
     respond_to do |format|
@@ -65,12 +62,12 @@ class ExpensesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    # Selects the created expense by id, in order to edit or destroy
     def set_expense
       @expense = Expense.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Required data to create an expense.
     def expense_params
       params.require(:expense).permit(:location, :description, :total, :date).
       merge(user: current_user)

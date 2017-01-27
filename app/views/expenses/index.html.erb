@@ -14,6 +14,7 @@
   </thead>
 
   <tbody>
+    <!-- Runs a loop through the logged user's existing expenses. -->
     <% current_user.expenses.each do |expense| %>
       <tr>
         <td><%= expense.location %></td>

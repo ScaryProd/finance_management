@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is an application created for Andres Garcia in order for him to run his
+finance firm. It is part of the IB project.
 
-Things you may want to cover:
+It is made in ruby, using the on rails framework, and utilizing multiple gems
+in order to create this webapp.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+GEMS USED: Devise, Administrate and Bootstrap among others that were required.
